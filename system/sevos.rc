@@ -1,0 +1,44 @@
+# sevOS init actions. Installed at /system/etc/init/sevos.rc
+
+# The vendor recovery self-check reads 88 MB of eMMC on every boot, exactly while zygote loads.
+on property:init.svc.vendor_flash_recovery=running
+    stop vendor_flash_recovery
+
+on property:sys.boot_completed=1
+    start sevos_boot
+    start sevos_fan
+
+on property:sys.sevos.cmd=*
+    start sevos_ctl
+
+on property:sys.sevos.fan=*
+    write /dev/sevos_fan_changed 1
+
+# Instant standby: the kernel stays awake, only the light goes off with the screen.
+on property:debug.tracing.screen_state=1
+    write /sys/class/leds/Lcd_power/brightness 0
+    write /dev/sevos_fan_changed 1
+
+on property:debug.tracing.screen_state=2
+    write /sys/class/leds/Lcd_power/brightness 255
+    write /dev/sevos_fan_changed 1
+
+service sevos_boot /system/bin/sh /system/etc/sevos_boot.sh
+    user root
+    group root
+    seclabel u:r:su:s0
+    oneshot
+    disabled
+
+service sevos_ctl /system/bin/sh /system/etc/sevos_ctl.sh
+    user root
+    group root
+    seclabel u:r:su:s0
+    oneshot
+    disabled
+
+service sevos_fan /system/bin/chrt -f 10 /system/bin/sh /system/etc/sevos_fan.sh
+    user root
+    group root
+    seclabel u:r:su:s0
+    disabled

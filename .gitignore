@@ -1,0 +1,10 @@
+sevos-work/
+build/
+.gradle/
+.kotlin/
+local.properties
+keystore.properties
+*.jks
+*.keystore
+*.img
+.DS_Store

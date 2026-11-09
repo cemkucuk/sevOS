@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- 2: really go to sleep. The vendor framework turns the default (1) into the power-off menu. -->
+    <integer name="config_shortPressOnPowerBehavior">2</integer>
+</resources>

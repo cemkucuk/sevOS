@@ -1,0 +1,13 @@
+f /priv-app/PrebuiltGmsCorePano/oat/arm/PrebuiltGmsCorePano.odex
+f /priv-app/PrebuiltGmsCorePano/oat/arm/PrebuiltGmsCorePano.vdex
+f /priv-app/Tubesky/oat/arm/Tubesky.odex
+f /priv-app/Tubesky/oat/arm/Tubesky.vdex
+d /priv-app/PrebuiltGmsCorePano/oat/arm
+d /priv-app/Tubesky/oat/arm
+f /priv-app/PrebuiltGmsCorePano/PrebuiltGmsCorePano.apk
+d /priv-app/PrebuiltGmsCorePano/oat
+f /priv-app/Tubesky/Tubesky.apk
+d /priv-app/Tubesky/oat
+f /media/bootanimation.ts
+d /priv-app/PrebuiltGmsCorePano
+d /priv-app/Tubesky
